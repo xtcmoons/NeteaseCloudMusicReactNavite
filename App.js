@@ -21,6 +21,10 @@ const TabBarScreen = () => {
         component={Home}
         options={{
           title: 'Home',
+          headerStyle: {
+            backgroundColor: colors.themeColor,
+          },
+          headerTintColor: colors.fontColorLight,
         }}
       />
       <Tab.Screen name="Profile" component={Profile} />
@@ -36,13 +40,7 @@ export default function App() {
           <HomeStack.Screen
             name="TabBar"
             component={TabBarScreen}
-            options={{
-              title: 'Home',
-              headerStyle: {
-                backgroundColor: colors.themeColor,
-              },
-              headerTintColor: colors.fontColorLight,
-            }}
+            options={{}}
           />
           <HomeStack.Screen name="Detail" component={Detail} />
         </HomeStack.Navigator>
