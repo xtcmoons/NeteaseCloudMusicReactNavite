@@ -12,8 +12,8 @@ const Detail = () => {
   );
 };
 
-const mapStateToProps = () => {};
+// const mapStateToProps = () => {};
 
-const mapDispatchToProps = () => {};
+// const mapDispatchToProps = () => {};
 
-export default connect(mapStateToProps, mapDispatchToProps)(Detail);
+export default connect()(Detail);

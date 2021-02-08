@@ -7,6 +7,7 @@ import {
   SafeAreaView,
   StyleSheet,
   FlatList,
+  TouchableHighlight,
   Dimensions,
 } from 'react-native';
 import * as actionTypes from './store/actionCreators';
@@ -18,6 +19,7 @@ const {width, height} = Dimensions.get('window');
 const Home = (props) => {
   const {bannerList, recommendList} = props;
   const {getBannerDataDispatch, getRecommendListDataDispatch} = props;
+  const {navigation} = props;
   // console.log('->>>>>', bannerList);
   // console.log('------>', recommendList);
 
@@ -28,7 +30,7 @@ const Home = (props) => {
   }, []);
 
   return (
-    <SafeAreaView>
+    <SafeAreaView style={styles.container}>
       <View>
         <FlatList
           ListHeaderComponent={
@@ -57,8 +59,10 @@ const Home = (props) => {
           keyExtractor={(item) => item.id + ''}
           renderItem={({item, index, separators}) => {
             return (
-              <View>
-                <Image style={styles.cellImage} source={{uri: item.picUrl}} />
+              <View style={styles.cellImage}>
+                <TouchableHighlight onPress={() => navigation.push('Detail')}>
+                  <Image style={styles.cellImage} source={{uri: item.picUrl}} />
+                </TouchableHighlight>
               </View>
             );
           }}

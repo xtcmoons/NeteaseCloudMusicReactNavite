@@ -6,25 +6,19 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import store from './src/store/index';
 
 import Home from './src/pages/home';
+import Profile from './src/pages/profile';
+import Detail from './src/pages/detail';
 
 const Tab = createBottomTabNavigator();
 const HomeStack = createStackNavigator();
 const ProfileStack = createStackNavigator();
 
-const HomeStackScreen = () => {
+const TabBarScreen = () => {
   return (
-    <HomeStack.Navigator>
-      <HomeStack.Screen name="Home" component={Home} />
-      <HomeStack.Screen name="Profile" component={Home} />
-    </HomeStack.Navigator>
-  );
-};
-
-const ProfileStackScreen = () => {
-  return (
-    <ProfileStack.Navigator>
-      <ProfileStack.Screen name="Profile" component={Home} />
-    </ProfileStack.Navigator>
+    <Tab.Navigator>
+      <Tab.Screen name="Home" component={Home} />
+      <Tab.Screen name="Profile" component={Profile} />
+    </Tab.Navigator>
   );
 };
 
@@ -32,10 +26,10 @@ export default function App() {
   return (
     <Provider store={store}>
       <NavigationContainer>
-        <Tab.Navigator>
-          <Tab.Screen name="Home" component={HomeStackScreen} />
-          <Tab.Screen name="Profile" component={ProfileStackScreen} />
-        </Tab.Navigator>
+        <HomeStack.Navigator>
+          <HomeStack.Screen name="TabBar" component={TabBarScreen} />
+          <HomeStack.Screen name="Detail" component={Detail} />
+        </HomeStack.Navigator>
       </NavigationContainer>
     </Provider>
   );
