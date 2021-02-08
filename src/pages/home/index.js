@@ -30,29 +30,35 @@ const Home = (props) => {
   return (
     <SafeAreaView>
       <View>
-        <Text>Hello world</Text>
-        <View style={styles.image}>
-          <Swiper style={styles.image} autoplay>
-            {bannerList.map((item) => {
-              console.log('swiper -----------> ', item.imageUrl);
-              <View style={styles.image}>
-                <Image style={styles.image} source={{uri: item.imageUrl}} />
-              </View>;
-            })}
-          </Swiper>
-        </View>
         <FlatList
+          ListHeaderComponent={
+            <View style={styles.image}>
+              <Swiper
+                style={styles.wrapper}
+                height={160}
+                autoplay={true}
+                autoplayTimeout={1}
+                removeClippedSubviews={false}>
+                {bannerList.map((item) => {
+                  return (
+                    <Image
+                      key={item.imageUrl}
+                      style={styles.image}
+                      source={{uri: item.imageUrl}}
+                    />
+                  );
+                })}
+              </Swiper>
+            </View>
+          }
           data={recommendList}
           horizontal={false}
           numColumns={3}
           keyExtractor={(item) => item.id + ''}
-          renderItem={(item) => {
+          renderItem={({item, index, separators}) => {
             return (
               <View>
-                <Image
-                  style={styles.cellImage}
-                  source={{uri: item.item.picUrl}}
-                />
+                <Image style={styles.cellImage} source={{uri: item.picUrl}} />
               </View>
             );
           }}
@@ -79,13 +85,22 @@ const mapDispatchToProps = (dispatch) => {
 };
 
 const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
   wrapper: {
     backgroundColor: '#f00',
-    height: 100,
+    height: 160,
+  },
+  slide: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: 'transparent',
   },
   image: {
     width,
-    height: 100,
+    height: 160,
   },
   cellImage: {
     width: width / 3,
