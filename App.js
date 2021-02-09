@@ -16,7 +16,7 @@ const HomeStack = createStackNavigator();
 
 const TabBarScreen = () => {
   return (
-    <Tab.Navigator>
+    <Tab.Navigator initialRouteName="Home">
       <Tab.Screen name="Home" component={Home} options={{}} />
       <Tab.Screen name="Profile" component={Profile} />
     </Tab.Navigator>
@@ -42,10 +42,11 @@ export default function App() {
           <HomeStack.Screen
             name="Detail"
             component={Detail}
-            options={({navigation, route}) => ({
+            options={({ navigation, route }) => ({
+
               headerLeft: () => {
                 return (
-                  <TouchableHighlight onPress={() => navigation.pop()}>
+                  <TouchableHighlight onPress={() => {}}>
                     <Image
                       style={{left: 15, width: 20, height: 20}}
                       source={require('./src/images/direction-left.png')}
