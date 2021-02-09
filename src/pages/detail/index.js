@@ -3,16 +3,6 @@ import {SafeAreaView, Text, View, Button} from 'react-native';
 import {connect} from 'react-redux';
 
 const Detail = ({navigation}) => {
-  const [count, setCount] = React.useState(0);
-
-  React.useLayoutEffect(() => {
-    navigation.setOptions({
-      headerRight: () => (
-        <Button onPress={() => setCount((c) => c + 1)} title="Update count" />
-      ),
-    });
-  }, [navigation, setCount]);
-
   return (
     <View>
       <Button
