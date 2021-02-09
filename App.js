@@ -1,4 +1,5 @@
 import * as React from 'react';
+import {TouchableHighlight, Image} from 'react-native';
 import {Provider} from 'react-redux';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
@@ -16,17 +17,7 @@ const HomeStack = createStackNavigator();
 const TabBarScreen = () => {
   return (
     <Tab.Navigator>
-      <Tab.Screen
-        name="Home"
-        component={Home}
-        options={{
-          title: 'Home',
-          headerStyle: {
-            backgroundColor: colors.themeColor,
-          },
-          headerTintColor: colors.fontColorLight,
-        }}
-      />
+      <Tab.Screen name="Home" component={Home} options={{}} />
       <Tab.Screen name="Profile" component={Profile} />
     </Tab.Navigator>
   );
@@ -40,9 +31,30 @@ export default function App() {
           <HomeStack.Screen
             name="TabBar"
             component={TabBarScreen}
-            options={{}}
+            options={{
+              title: '推荐',
+              headerStyle: {
+                backgroundColor: colors.themeColor,
+              },
+              headerTintColor: colors.fontColorLight,
+            }}
           />
-          <HomeStack.Screen name="Detail" component={Detail} />
+          <HomeStack.Screen
+            name="Detail"
+            component={Detail}
+            options={({navigation, route}) => ({
+              headerLeft: () => {
+                return (
+                  <TouchableHighlight onPress={() => navigation.pop()}>
+                    <Image
+                      style={{left: 15, width: 20, height: 20}}
+                      source={require('./src/images/direction-left.png')}
+                    />
+                  </TouchableHighlight>
+                );
+              },
+            })}
+          />
         </HomeStack.Navigator>
       </NavigationContainer>
     </Provider>
