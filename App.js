@@ -32,7 +32,7 @@ export default function App() {
             name="TabBar"
             component={TabBarScreen}
             options={{
-              title: '推荐',
+              headerTitle: '推荐',
               headerStyle: {
                 backgroundColor: colors.themeColor,
               },
@@ -43,9 +43,10 @@ export default function App() {
             name="Detail"
             component={Detail}
             options={({navigation, route}) => ({
+              headerTitle: '详情',
               headerLeft: () => {
                 return (
-                  <TouchableHighlight onPress={() => {}}>
+                  <TouchableHighlight onPress={() => navigation.pop()}>
                     <Image
                       style={{left: 15, width: 20, height: 20}}
                       source={require('./src/images/direction-left.png')}
