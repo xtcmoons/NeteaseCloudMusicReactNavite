@@ -13,7 +13,14 @@ const Detail = ({navigation}) => {
     });
   }, [navigation, setCount]);
 
-  return <Text>Count: {count}</Text>;
+  return (
+    <View>
+      <Button
+        title="go to playlist"
+        onPress={() => navigation.push('PlaylistCatlist')}
+      />
+    </View>
+  );
 };
 
 // const mapStateToProps = () => {};

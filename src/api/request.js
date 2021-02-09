@@ -7,3 +7,7 @@ export const getBannerRequest = () => {
 export const getRecommendListRequest = () => {
   return axiosInstance.get('/personalized');
 };
+
+export const getPlaylistCatlistRequest = () => {
+  return axiosInstance.get('/playlist/catlist');
+};

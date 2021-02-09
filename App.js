@@ -10,6 +10,7 @@ import store from './src/store/index';
 import Home from './src/pages/home';
 import Profile from './src/pages/profile';
 import Detail from './src/pages/detail';
+import PlaylistCatlist from './src/pages/playlist';
 
 const Tab = createBottomTabNavigator();
 const HomeStack = createStackNavigator();
@@ -55,6 +56,10 @@ export default function App() {
                 );
               },
             })}
+          />
+          <HomeStack.Screen
+            name="PlaylistCatlist"
+            component={PlaylistCatlist}
           />
         </HomeStack.Navigator>
       </NavigationContainer>

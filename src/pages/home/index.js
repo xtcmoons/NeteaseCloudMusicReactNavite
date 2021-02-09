@@ -26,7 +26,6 @@ const Home = (props) => {
   // console.log('------>', recommendList);
 
   useLayoutEffect(() => {
-    console.log(' use layout effect ---------> ');
     navigation.setOptions({
       header: null,
     });
