@@ -42,8 +42,7 @@ export default function App() {
           <HomeStack.Screen
             name="Detail"
             component={Detail}
-            options={({ navigation, route }) => ({
-
+            options={({navigation, route}) => ({
               headerLeft: () => {
                 return (
                   <TouchableHighlight onPress={() => {}}>

@@ -25,21 +25,12 @@ const Home = (props) => {
   // console.log('->>>>>', bannerList);
   // console.log('------>', recommendList);
 
-  const [count, setCount] = useState(0);
-
   useLayoutEffect(() => {
     console.log(' use layout effect ---------> ');
     navigation.setOptions({
-      headerTitle: '今日推荐',
-      headerStyle: {
-        backgroundColor: colors.themeColor,
-      },
-      headerTintColor: colors.fontColorLight,
-      headerRight: () => (
-        <Button onPress={() => setCount((c) => c + 1)} title="Update count" />
-      ),
+      header: null,
     });
-  }, [navigation, setCount]);
+  }, [navigation]);
 
   useEffect(() => {
     getBannerDataDispatch();
